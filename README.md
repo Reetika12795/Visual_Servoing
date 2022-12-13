@@ -340,7 +340,7 @@ We have used lidar to avoid obstacle in our algorithm.
 
 ## 1. Obstacle detection
 
-Detection of an obstacle is an improtant part of any self-driving robot. Lidar is a very reliable device to calculate distance from nearby field within its detectable range. The lidar in turrtlebot3 has a range of 120 ~ 3,500mm.
+Detection of an obstacle is an important part of any self-driving robot. Lidar is a very reliable device to calculate distance from nearby field within its detectable range. The lidar in turrtlebot3 has a range of 120 ~ 3,500mm.
 
 ## 2. The algorithm developed
 
@@ -352,6 +352,10 @@ The data we get from turtlebot3 lidar is continious but not proper reliable as t
 Different turtlebots have been tried to overcome this problem but it seems that they are made out of same mother.
 
 A threshold of 300mm is kept for avoidance of obstacles which is, if any object is within the range of 300mm of the robot at 0, 15, 345 degrees, the robot will make it's provided direction other than the calculated direction from the transformation matrix.
+
+
+
+https://user-images.githubusercontent.com/33001160/207417709-99d5f0ae-672c-4cc3-a5fd-5590e6b43483.mp4
 
 
 
