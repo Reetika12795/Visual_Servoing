@@ -99,7 +99,9 @@ For our project we will demontrate a real time visual servoing performed on Turt
 *  Integration of ROS
 
 *  Obstacle avoidance
-![alt text](images/timeline.png)
+
+![[Pasted image 20221213151923.png]]
+
 
 # Camera Calibration:
 
