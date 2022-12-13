@@ -5,20 +5,24 @@
    <img src = "images/ub.png" width = 200>
 </p >
 
-#  <p align="center">University of Burgundy
-</p >
-#  <p align="center">Master of Computer vision and Robotics</p > 
-#  <p align="center">  
+#  <p align="center">University of Burgundy</p >
+#  <p align="center">**Master of Computer vision and Robotics**</p >
+<p align="center">  
    <img src = "images/vibot.png" width = 80>
 </p >
 
 
 
-##  <p align="center">Under the guidance of:</p > 
-<p align="center"> Omar TAHRI </p >     
-##   <p align="center">Team Members:</p >
-<p align="center">REETIKA GAUTAM</p>
-<p align="center">SEIKH MOHAMMED BASHARAT MONES</p>
+# <p align="center">**Under the guidance of**<br/><br/>Omar TAHRI
+
+
+## <p align="center">Team Members:<br/><br/>SEIKH Mohammed Basharat Mones<br/>Reetika GAUTAM
+
+
+
+
+
+
 
 
 # TABLES OF CONTENTS:
@@ -50,16 +54,16 @@
     6) [Demo video of robo visual servoing ghoomar ghoomar]
     
 
- 7. [Obstacle avoidance using Lidar Data](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#obstacle-avoidance)
+ 8. [Obstacle avoidance using Lidar Data](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#obstacle-avoidance)
 
     1) [Obstacle detection and avoidance](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-obstacle-detection)
     2) [Demo video]
     3) [The ambiguity in the LIdar Data](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-the-algorithm-developed)
     4) [Final Demo of Robot avoiding the obstacle](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-similar-rrt-algorithm)
 
- 8. [Conclusion and learning outcome](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#conclusion)
+ 9. [Conclusion and learning outcome](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#conclusion)
  
- 9. [References]
+ 10. [References]
 
 
 
@@ -283,97 +287,125 @@ A ROS Node can be a Publisher or a Subscriber. A Publisher is the one puts the m
 
 Note that a publisher can publish to one or more Topic and a Subscriber can subscribe to one or more Topic. Also, publishers and subscribers are not aware of each other’s existence. The idea is to decouple the production of information from its consumption and all the IP addresses of various nodes are tracked by the ROS Master.
 
-![](https://user-images.githubusercontent.com/76461363/206849013-a1c9ff25-d76f-47aa-b780-a7aac427da26.png))
+![](https://thanhnguyensite.files.wordpress.com/2020/11/ac627-0wpj6rtkf1igna0m2.png)
 
-## 3.    Launch the Robot:
+<br>
 
-The robot is already delivered with all the necessary ROS packages, otherwise you can easily get them by flowing a good tutorial made by ‘ROBOTIS’ [https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
+## 3. Launch the Robot :
+
+The robot is already delivered with all the necessary ROS packages, otherwise we can easily get them by flowing a good tutorial made by ‘ROBOTIS’ [https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
 
 To launch the robot in the terminal, write these commands:
+```
+roscore
+```
+We need to remotely connect to the bot with local server and run the following commands
+```
+ssh [user]@[ip_address] #of the bot
+```
+After logging in to bot run: 
+```
+roslaunch turtlebot3_bringup turtlebot3_robot.launch
+```
 
-![Text Box: Roscore
-Ssh ubuntu@192.168.0.200 “the password is napelturbot”
-roslaunch turtlebot3_bringup turtlebot3_robot. launch](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image073.png)
+The topics to move the robot and controls will be up until this point.
 
-Till now we started these topics on our robot:
+<br>
 
-![Une image contenant texte
-Description générée automatiquement](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image075.png)
+## 4. Launch the Camera :
+<br>
 
-## 4.    Launch the Camera:
+To publish our code in the robot, we must get the images of the camera first. In order to do that, there is already ROS packages of the U-eye camera. We can download and install them from: [https://github.com/anqixu/ueye_cam](https://github.com/anqixu/ueye_cam)
 
-To publish our code in the robot, we must get the topics of the camera first; for that there is already Ros packages of the Ueye-camera by installing them from: [https://github.com/anqixu/ueye_cam](https://github.com/anqixu/ueye_cam)
+After successful installation we run the following command to check the view of camera:
+```
+roslaunch ueye_cam rgb8.launch
+```
+<br>
 
-![Text Box: Roslaunch ueye_cam rgb8.launch](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image076.png)
+## 5. Detect ArUco Marker :
+Aruco marker detection is done with ROS ArUco package which was developed by [Pal-Robotics](https://github.com/pal-robotics/aruco_ros).
 
-## Move the robot
+The package helps to detect the aruco marker in the camera frame.
+For different aruco markers, we have created different launch files for avoiding any conflicts between data.
 
-This step is to publish the speed calculated by publishing it on the robot’s topic “cmd_vel”. A servoing closed loop that gets the real time image, calculates the velocity, and sends it to the robot by a frequency of 50 Hz. The robot receives the instruction and goes to the target. The robot stops when the distance between the current and the target is about 40 pixels or (40/f)*Z = 5.6 cm (where f is the focal length and Z is the distance to the camera). And for the parking we added another condition to adjust the angle θ, so the robot has the same orientation as the target.
+After cloning the repository proviously mentioned and installation, go inside the launch folder, create a new launch file for different aruco marker and put the aruco marker ID and size of the marker or provide the same while running the launch file as arguments.
 
-![Text
-Description automatically generated](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image078.png)
+![image](https://user-images.githubusercontent.com/116564367/207371246-7de48631-9e39-44d5-9731-af32b2cf6d28.png)
+
+To launch the marker, run :
+```
+roslaunch my_aruco_tracker aruco_marker_finder.launch
+```
+It will show the detected marker with it's ID successfully.
+
+![image](https://user-images.githubusercontent.com/116564367/207372561-49861012-3d11-4e39-91e1-e8fbe74555b9.png)
+
+<br>
+
+## 6. Code to detect the pose from ArUco maarkers :
+
+'aruco_marker_finder.launch' launch file will detect and provide the data of the pose of the marker. This is described in an earlier section.
+
+To get the pose we have used 2D coordinates as our bot is moving in 2D.
+Run the following snippet to get the pose from the marker :
+```
+rosrun my_aruco_tracker get_aruco_coord.py
+```
+![image](https://user-images.githubusercontent.com/116564367/207375083-1597c225-a4a2-4e84-b7d4-e94ac84c0336.png)
+
+<br>
+
+## 7. Generate transformation matrix
+
+Transformation matrix provides the transformation between two poses.
+To get the transformation matrix run:
+
+```
+rosrun my_aruco_tracker transformation_matrix.py
+```
+
+## 8. Move the robot :
+
+After we get the transformation matrix, it is the time to move the robot with calculated data.
+The bot will move from initial position which is the position of robot itself and move to a destination which can be mobile or a fixed position.
+
+This step is to publish the speed calculated by publishing it on the robot’s “**cmd_vel**” topic. A servoing closed loop that gets the real time image, calculates the velocity and sends it to the robot. The robot receives the instruction and moves to the target. The robot stops when the distance between the current and the target is about 20cm.
+
+To move the robot, run:
+
+```rosrun my_aruco_tracker path_plan.py
+```
+## **NOTE : By runnig path_plan.py, we are running all the previous files to get aruco coordinates and calculation of transformation matrix. So there is no need to run the previous two scripts, 'get_aruco_coord.py' and 'transformation_matrix.py'**
+<br>
+
 
 # Obstacle avoidance
 
 Detect and avoid obstacles are important features for a mobile robot to navigate in an unknown environment. First step is detecting the obstacles where simple object detection or deep learning can be used. Second step is the path planning to reach the target.
 
-Numerous of algorithm exist to determine the shortest path like A* and RRT. We chose to develop our own method to avoid obstacles as well as RRT algorithm.
+We have used lidar to avoid obstacle in our algorithm.
 
-## 1.    Obstacle detection
+## 1. Obstacle detection
 
-Detect an object considered as an obstacle needs a computer vision. Depending on the desired result, it can be a simple or a complex detection from shape or colour detection to a deep learning model to detect any object that can be considered as an obstacle. In this project we chose a simple colour detection with a red colour mask to extrait the red objects from the image.
+Detection of an obstacle is an improtant part of any self-driving robot. Lidar is a very reliable device to calculate distance from nearby field within its detectable range. The lidar in turrtlebot3 has a range of 120 ~ 3,500mm.
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image081.png)
+## 2. The algorithm developed
 
-## 2.    The algorithm developed
+We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.
 
-The input image is divided into squares with the same size as the robot in pixels, then we consider the square with red colour pixels as an obstacle square which can’t be added to the path. Next, for each box a cost is calculated by the following equations:
+0 degree is the front of the turtlebot3 and it measures in an anticlockwise manner.
+The data we get from turtlebot3 lidar is continious but not proper reliable as the data is ambiguous. While scanning the surrounding, the lidar sends lots of zeros and it makes the detection difficult in real time.
 
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image083.png)
+Different turtlebots have been tried to overcome this problem but it seems that they are made out of same mother.
 
-Where d is the distance from the centre of the square to the target. 
+A threshold of 300mm is kept for avoidance of obstacles which is, if any object is within the range of 300mm of the robot at 0, 15, 345 degrees, the robot will make it's provided direction other than the calculated direction from the transformation matrix.
 
-n = ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image085.png) if the square is an obstacle neighbour and n = 0 if not.
 
-This equation returns a cost with an inverse relationship to the distance to the target with a bigger value to the obstacle’s neighbour squares, this gives a safety margin to completely avoid the obstacle.
 
-The algorithm steps:
-
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image087.png)
-
-Applying this algorithm in real life gives us the result in the following figure. The path is as far as it can be from the obstacles to have a safe margin, however, it’s not exactly the optimist way. The algorithm can be improved to calculate the total cost of the path and then try another path as what other algorithms do (A star and RRT).  
-
-The path points are then sent to the control system so that the robot reach each point as it’s finale target. Once it reached to the first point it goes to the second until the end of the path.
-
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image089.png)
-
-## 3.    Similar RRT algorithm
-
-Rapidly exploring Random Tree is an algorithm used in path planning to create a safety path for a trajectory.
-
-Like the RRT process algorithm we try to describe a path that the robot can follow safety to join the target position avoiding the different obstacles.
-
-The RRT algorithm follows the step below.
-
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image090.png)![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image091.png)![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image093.png)
-
-In first time, around the start point we create a point by using a random vector generate by the goal position and the concept of nearest neighbour. Then we check if this point is not at the position of the obstacle and if it respects the condition due to its distance to the goal position. If this constraint is done, we add it in the path list and restart the process with this point as the start point now. In a small simulation we fixe an obstacle and create the path
-
-![Chart, scatter chart
-Description automatically generated](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image095.png).
-
-In the image in green we have different points created by the algorithm. When the point is close to the obstacle, it creates a new point by respecting the constraint due to its distance from him until the robot arrives at the goal.
-
-Now we apply it on an image. First with an algorithm for colour detection we detect the obstacle, and we extract its position. In this case the position is extracted in pixel.
-
-                  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image097.png)                  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image099.png)
-
-With this position and the robot and target position we can apply the algorithm to have the path that the robot can follow.
-
-![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image101.png)              ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image103.png)
 
 # Conclusion
 
-Controlling a robot in an unknown environment add more challenge to the control system and to the detection. Detecting the robot will not be as easy as while using the aruco marker. Moving the robot in a rugged terrain needs a robust control system that takes in consideration the tough surface and the sliding of the wheels. We can use a deep learning algorithm to detect the robot and the target. Using a CNN models to detect the robot without a marker in almost all the situation depending on how strong the model is.
+Controlling a robot in an unknown environment add more challenge to the control system and to the detection. Detecting the robot will not be as easy as while using the aruco marker. Moving the robot in a rugged terrain needs a robust control system that takes in consideration the tough surface and the sliding of the wheels.
 
 The project allowed us to take on hand several important robotic skills, image processing, visual servoing, path planning, interpretation of the result, frame transformation, and soft skills as well.
