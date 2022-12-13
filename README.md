@@ -261,7 +261,7 @@ To publish our code in the robot, we must get the topics of the camera first; fo
 
 ![Text Box: Roslaunch ueye_cam rgb8.launch](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image076.png)
 
-## Move the robot
+## Move the robot.
 
 This step is to publish the speed calculated by publishing it on the robot’s topic “cmd_vel”. A servoing closed loop that gets the real time image, calculates the velocity, and sends it to the robot by a frequency of 50 Hz. The robot receives the instruction and goes to the target. The robot stops when the distance between the current and the target is about 40 pixels or (40/f)*Z = 5.6 cm (where f is the focal length and Z is the distance to the camera). And for the parking we added another condition to adjust the angle θ, so the robot has the same orientation as the target.
 
