@@ -100,14 +100,14 @@ For our project we will demontrate a real time visual servoing performed on Turt
 
 *  Obstacle avoidance
 
-![[Pasted image 20221213151923.png]]
+![alt text](images/timeline.png)
 
 
 # Camera Calibration:
 
 Camera Calibration is the process of estimating the intrinsic and extrinsic parameters. Intrinsic parameters refer to the internal characteristics of the camera, such as focal length, tilt, distortion, and image center. The extrinsic parameters describe the position and its orientation in the real (X, Y, Z) frame.
 
-![[Pasted image 20221213152811.png]]
+![alt text](images/calib.png)
 
 **This is the first step we must take before doing anything else.**
 
