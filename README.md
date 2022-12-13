@@ -315,7 +315,18 @@ This step is to publish the speed calculated by publishing it on the robotâ€™s â
 rosrun my_aruco_tracker path_plan.py
 ```
 ## **NOTE : By runnig path_plan.py, we are running all the previous files to get aruco coordinates and calculation of transformation matrix. So there is no need to run the previous two scripts, 'get_aruco_coord.py' and 'transformation_matrix.py'**
+
 <br>
+
+# Demo video of Robot Parking
+
+
+https://user-images.githubusercontent.com/116564367/207425999-63dfdd6a-4dc8-4056-9795-222de2fbb4dd.mp4
+
+
+# Demo video of Visual Servoing
+
+https://user-images.githubusercontent.com/116564367/207425777-81ebaaec-93d1-4d60-be42-060b9ed519db.mp4
 
 
 # Obstacle avoidance
@@ -327,6 +338,10 @@ We have used lidar to avoid obstacle in our algorithm.
 ## 1. Obstacle detection
 
 Detection of an obstacle is an important part of any self-driving robot. Lidar is a very reliable device to calculate distance from nearby field within its detectable range. The lidar in turrtlebot3 has a range of 120 ~ 3,500mm.
+
+
+https://user-images.githubusercontent.com/116564367/207426348-3f00c999-504b-49d9-93dc-413128de6fb1.mp4
+
 
 ## 2. The algorithm developed
 
@@ -341,10 +356,7 @@ A threshold of 300mm is kept for avoidance of obstacles which is, if any object 
 
 
 
-https://user-images.githubusercontent.com/33001160/207417709-99d5f0ae-672c-4cc3-a5fd-5590e6b43483.mp4
-
-
-
+https://user-images.githubusercontent.com/116564367/207426650-6daa5a5e-d7d2-48e0-9f54-29c8a6dd0bbf.mp4
 
 # Conclusion
 
