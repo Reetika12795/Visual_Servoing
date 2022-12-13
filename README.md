@@ -37,16 +37,17 @@ TABLES OF CONTENTS:
 
 
  1. [Introduction](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
+	1. [Architecture of our Approach]
+	
+ 1. [Camera Calibration](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
 
- 2. [Camera Calibration](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
+ 2. [3D pose estimation by using Aruco Marker](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#detection-and-pose-estimation)
 
- 3. [3D pose estimation by using Aruco Marker](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#detection-and-pose-estimation)
+ 3. [Transforming the system to Robot Frame](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#frame-transformation)
 
- 4. [Transforming the system to Robot Frame](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#frame-transformation)
+ 4. [Control Used](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#control-system)
 
- 5. [Control Used](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#control-system)
-
- 6. [Integration of Aruco marker with ROS ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#integration-of-ros)
+ 5. [Integration of Aruco marker with ROS ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#integration-of-ros)
     1) [ What is ROS: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-what-is-ros)
 
     2) [ What is the publisher and Subscriber](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-what-is-the-publisher-and-subscriber)
@@ -77,31 +78,36 @@ TABLES OF CONTENTS:
 
 # Introduction:
 
-During the Multi-Sensor Fusion and Tracking module we had a project to realize, the goal of this project is to control a 2-wheel mobile robot "Turtlubot3" under ROS melodic from an UEYE-camera using the configuration (Eye-to-hand):
+Visual servoing is a control technique used in robotics to control the motion of a robot using visual feedback from a camera. It involves using visual information from the robot's environment to control the motion of its end effector, or the part of the robot that interacts with its surroundings. Visual servoing allows robots to perform tasks such as tracking a moving object, following a predetermined path, or manipulating objects in their environment. This technique can be used in a variety of applications, including manufacturing, healthcare, and search and rescue operations.
 
-·        The first objective is to move the robot from an initial position to a Target position considering the target orientation (Parking).
+For our project we will demontrate a real time visual servoing performed on TurtleBot3- Burger to follow a defined target from an UEYE-camera using the configuration (Eye-to-hand) configuration uisng ROS noetic :
 
-·        The second objective is to do the same thing as task 1 but with obstacles, the task of the robot is to avoid these obstacles (in our case we used buckets of a red color) and reach the target.
+* The first objective is to move the robot from an initial position to a Target position considering the target orientation (Parking).
 
-To solve our problem, we have divided the spots as objectives as can be seen in figure 1:
+*  The second task is to make the robot follow the optimal path to target by avoiding the obstacle encountered on it's way.
 
-·        Camera calibration
+## Architechture of our model
 
-·        Pose initial and target robot estimation
+*  Launch video feed from Ueye_cam
 
-·        control system
+*  Camera calibration
 
-·        Integration of ROS
+*  Pose initial and target robot estimation
 
-·        Obstacle avoidance
+*  control system
 
-![](https://user-images.githubusercontent.com/76461363/206848388-45c6d0bb-b566-4624-8acb-7dbebc14adbc.png)
+*  Integration of ROS
 
-![](https://user-images.githubusercontent.com/76461363/206848522-87638424-25fb-4ea0-b68d-5973452a468b.png)
+*  Obstacle avoidance
+
+![[Pasted image 20221213151923.png]]
+
 
 # Camera Calibration:
 
 Camera Calibration is the process of estimating the intrinsic and extrinsic parameters. Intrinsic parameters refer to the internal characteristics of the camera, such as focal length, tilt, distortion, and image center. The extrinsic parameters describe the position and its orientation in the real (X, Y, Z) frame.
+
+![[Pasted image 20221213152811.png]]
 
 **This is the first step we must take before doing anything else.**
 
@@ -128,8 +134,8 @@ _tx ty tz_: which are the components of the translation vector allowing to pass 
 
 In total, there are 12 parameters to be estimated (the rotation matrix R contains 9 elements, but the relation that defines it as a rotation matrix R. RT = 1 reduces the number of independent elements to 3: the 3 polar angles).
 
-**Example of camera calibration (Distortion Elimination):**
-![](https://user-images.githubusercontent.com/76461363/206848758-15ceecfe-e786-4db3-91c4-67c49b81de3f.png)
+**Example of camera calibration data matrix (Distortion Elimination):**
+
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image014.png)
 
 **Code Source:**
