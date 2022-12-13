@@ -99,15 +99,13 @@ For our project we will demontrate a real time visual servoing performed on Turt
 *  Integration of ROS
 
 *  Obstacle avoidance
-
-![[Pasted image 20221213151923.png]]
-
+![alt text](images/timeline.png)
 
 # Camera Calibration:
 
 Camera Calibration is the process of estimating the intrinsic and extrinsic parameters. Intrinsic parameters refer to the internal characteristics of the camera, such as focal length, tilt, distortion, and image center. The extrinsic parameters describe the position and its orientation in the real (X, Y, Z) frame.
 
-![[Pasted image 20221213152811.png]]
+![alt text](images/calib.png)
 
 **This is the first step we must take before doing anything else.**
 
@@ -147,7 +145,7 @@ rosrun camera_calibration cameracalibrator.py --size 7x5 --square 0.12 image:=/c
 
 **Example of camera calibration data matrix:**
 
-![[calibration_data.png]]
+![alt text](images/calibration_data.png)
 
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image026.png)
 
@@ -161,13 +159,13 @@ There are several methods to detect the pose using the camera for example Qrcode
 
 For our model we use the my_aruco package for detection of two markers, one for robot and one for target resoectively . Then, two methods were tested to extract the correct position of the aruco as well as its orientation.
 
-![[BothARUCOwithPose.png]]
+![alt text](images/BothARUCOwithPose.png)
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image028.png)
 
 
 A real-world problem is a 3D problem, because of the real condition of the workspace. So, a 3D position is necessary to move the robot in an efficient way. To have this 3D position we are using my_aruco_package  to get pose  of two specific markers, in our case(25 and 701)
 
-![[MicrosoftTeams-image.png]]
+![alt text](images/MicrosoftTeams-image.png)
 
 Using this information, a transformation matrix can be calculated by computing the rotation matrix from the rotation vector (using Rodriguez function) and then build the transformation matrix.
 
@@ -220,9 +218,9 @@ Simulate the control system using python code, by simulate a robot position whic
  put equation from slides.
 
 Here we see that our intitial position is defined as [0,0,-90] and we see clearly that our robot to reach the target takes a curved path to justify our control and sucessfully reaches the target of [2,2]
+![alt text](images/simulation.png)
 
-![ ](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image061.png)
-![[Pasted image 20221213165531.png]]
+MicrosoftTeams-imageBothARUCOwithPoseBothARUCOwithPoseBothARUCOwithPoseBothARUCOwithPoseBothARUCOwithPose
 
 # Integration of ROS
 
