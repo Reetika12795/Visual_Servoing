@@ -410,3 +410,9 @@ A threshold of 300mm is kept for avoidance of obstacles which is, if any object 
 Controlling a robot in an unknown environment add more challenge to the control system and to the detection. Detecting the robot will not be as easy as while using the aruco marker. Moving the robot in a rugged terrain needs a robust control system that takes in consideration the tough surface and the sliding of the wheels.
 
 The project allowed us to take on hand several important robotic skills, image processing, visual servoing, path planning, interpretation of the result, frame transformation, and soft skills as well.
+   
+# References
+[ROS TurtleBot3 Basics](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)\
+[ROS Wiki](http://wiki.ros.org/noetic)\
+[ROS Basics course](https://www.theconstructsim.com/robotigniteacademy_learnros/ros-courses-library/ros-perception-in-5-days/)\
+[ROS perception course](https://www.theconstructsim.com/robotigniteacademy_learnros/ros-courses-library/ros-perception-in-5-days/)
