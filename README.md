@@ -1,16 +1,3 @@
-## MSFT PROJECT MSCV
-
-This repo will have all the topics covered during msft visual servoing practicals
-
-division of work, work plan
-how the work was shared
-goals
-methods
-conclusion
-difficulties
-demerits(what happened if...unit testing)Analysis of project
-future scope
-refrence
 
 <p align="center">  
    <img src = "images/ub.png" width = 200>
@@ -36,40 +23,39 @@ TABLES OF CONTENTS:
 
 
 
- 1. [Introduction](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#introduction)
-	1. [Architecture of our Approach]
+ 1. [Introduction](https://github.com/Reetika12795/Visual_Servoing#introduction)
+	1. [Architecture of our Approach](https://github.com/Reetika12795/Visual_Servoing#architechture-of-our-model)
 	
- 1. [Camera Calibration](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#camera-calibration)
+ 1. [Camera Calibration](https://github.com/Reetika12795/Visual_Servoing#camera-calibration)
 
- 2. [3D pose estimation by using Aruco Marker](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#detection-and-pose-estimation)
+ 2. [3D pose estimation by using Aruco Marker](https://github.com/Reetika12795/Visual_Servoing#detection-of-aruco-and-3d-pose-estimation)
 
- 3. [Transforming the system to Robot Frame](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#frame-transformation)
+ 3. [Transforming the system to Robot Frame](https://github.com/Reetika12795/Visual_Servoing#frame-transformations)
 
- 4. [Control Used](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#control-system)
+ 4. [Control Used](https://github.com/Reetika12795/Visual_Servoing#control-loopflow-chart-req)
 
- 5. [Integration of Aruco marker with ROS ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#integration-of-ros)
-    1) [ What is ROS: ](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-what-is-ros)
+ 5. [Integration of Aruco marker with ROS ](https://github.com/Reetika12795/Visual_Servoing#integration-of-ros)
+    1) [ What is ROS: ](https://github.com/Reetika12795/Visual_Servoing#1-what-is-ros)
 
-    2) [ What is the publisher and Subscriber](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-what-is-the-publisher-and-subscriber)
+    2) [ What is the publisher and Subscriber](https://github.com/Reetika12795/Visual_Servoing#2-what-is-the-publisher-and-subscriber)
 
-7. [Implementation of working code]
+7. [Implementation of working code](https://github.com/Reetika12795/Visual_Servoing#3-launch-the-robot-)
 
-    1) [Launch the Robot](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-launch-the-robot)
-    2) [Launch the Ueye Camera](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#4-launch-the-camera)
-    3) [Launch the Aruco Markers to get the pose]
-    4) [rosrun the Control loop]
-    5) [ Demo video of robo parking]
-    6) [Demo video of robo visual servoing ghoomar ghoomar]
+    *  [Launch the Robot]
+    * [Launch the Ueye Camera]
+    * [Launch the Aruco Markers to get the pose]
+    * [rosrun the Control loop]
+    * [Demo video of robo parking](https://github.com/Reetika12795/Visual_Servoing#demo-video-of-robot-parking)
+    * [Demo video of robo as learder follower](https://github.com/Reetika12795/Visual_Servoing#demo-video-of-visual-servoing)
     
 
- 7. [Obstacle avoidance using Lidar Data](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#obstacle-avoidance)
+ 7. [Obstacle avoidance using Lidar Data](https://github.com/Reetika12795/Visual_Servoing#obstacle-avoidance)
 
-    1) [Obstacle detection and avoidance](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#1-obstacle-detection)
-    2) [Demo video]
-    3) [The ambiguity in the LIdar Data](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#2-the-algorithm-developed)
-    4) [Final Demo of Robot avoiding the obstacle](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#3-similar-rrt-algorithm)
+    1) [Obstacle detection and avoidance](https://github.com/Reetika12795/Visual_Servoing#1-obstacle-detection)
+    2) [Demo video](https://github.com/Reetika12795/Visual_Servoing#2-the-algorithm-developed)
 
- 8. [Conclusion and learning outcome](https://github.com/zainbinsumait/Multi_Sensor_Fusion_and_Tracking#conclusion)
+
+ 8. [Conclusion and learning outcome](https://github.com/Reetika12795/Visual_Servoing#conclusion)
  
  9. [References]
 
@@ -109,9 +95,9 @@ Camera Calibration is the process of estimating the intrinsic and extrinsic para
 
 **This is the first step we must take before doing anything else.**
 
-![](https://user-images.githubusercontent.com/76461363/206848564-6d615ea7-130a-4955-9420-ed19bc3ba407.png | width=100)
+![](https://user-images.githubusercontent.com/76461363/206848564-6d615ea7-130a-4955-9420-ed19bc3ba407.png)
 
-![](https://user-images.githubusercontent.com/76461363/206848672-9af177ee-715b-492c-9d05-796672afff5e.png | width=100)
+![](https://user-images.githubusercontent.com/76461363/206848672-9af177ee-715b-492c-9d05-796672afff5e.png)
 **The intrinsic parameters are:**
 
 _f_: the focal length.
@@ -200,7 +186,7 @@ In python we did that using the following code:
 np.linalg.inv(Robot_matrix_transformation).dot(Target_matrix_transformation)
 ```
 
-# Control loop(flow chart req)
+# Control Loop
 
 To move the TurtleBot, we need to send the order in a form of value of speed. 3 linear speeds and 3 rotational speeds in xyz axis. Corresponding to the number of degrees of freedom that we have on our robot (1 on x axis, 1 on y axis and 1 for the rotation around the z axis), two linear speeds (in respect of x and y) and one rotational speed (z) are given to the robot to move to a position. Consequently, we need to calculate these speeds first and then send it to the robot. The concept is to reduce the difference between the initial position and the target position. The difference includes the distance between them and the gap between their orientations.
 
@@ -215,7 +201,7 @@ The third parameter (beta) should be reduced to park the robot in the same orien
 
 The speeds are calculated then sent every (1/50) seconds to the robot using ROS. To have a smooth movement, max speed should be determined which allows also to take in consideration the physical constraint of the vehicle.
 
-## Simulation to test the control system(add pictures after simulation)
+## Simulation to test the Control 
 
 Simulate the control system using python code, by simulate a robot position which updates its position every time the speed is calculated. The next position is calculated by these equations:
  put equation from slides.
@@ -360,7 +346,7 @@ https://user-images.githubusercontent.com/116564367/207426348-3f00c999-504b-49d9
 
 ## 2. The algorithm developed
 
-We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.![alt text](images/equation.png)
+We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.
 
 0 degree is the front of the turtlebot3 and it measures in an anticlockwise manner.
 The data we get from turtlebot3 lidar is continious but not proper reliable as the data is ambiguous. While scanning the surrounding, the lidar sends lots of zeros and it makes the detection difficult in real time.
