@@ -1,16 +1,3 @@
-## MSFT PROJECT MSCV
-
-This repo will have all the topics covered during msft visual servoing practicals
-
-division of work, work plan
-how the work was shared
-goals
-methods
-conclusion
-difficulties
-demerits(what happened if...unit testing)Analysis of project
-future scope
-refrence
 
 <p align="center">  
    <img src = "images/ub.png" width = 200>
@@ -183,11 +170,16 @@ In this step, two transformation matrices are available, one for the current pos
 
 ![](https://user-images.githubusercontent.com/76461363/206848991-c9a72058-010f-4575-a4a0-cb51decc598e.png)
 
-Supposing that: The transformation matrix from the target to the camera is Tcamera_target, and the transformation matrix to the robot is Tcamera_robot, so the Transformation matrix from the target to the robot :  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image036.png)  
+
+Supposing that: The transformation matrix from the target to the camera is Tcamera_target, and the transformation matrix to the robot is Tcamera_robot, so the Transformation matrix from the target to the robot :  ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image036.png) 
+![alt text](images/equation.png)
 
 To do so, we need to combine these two matrices by multiplying the inverse of the [current transformation matrix] of the robot by the [target transformation matrix] to receive the combined transformation matrix (t) which is called:
 
 ![](https://user-images.githubusercontent.com/76461363/206848993-bd079be2-cb68-4bbf-a315-ebc8a080d4b9.png)
+
+
+
 
 In python we did that using the following code:
 
@@ -199,11 +191,9 @@ np.linalg.inv(Robot_matrix_transformation).dot(Target_matrix_transformation)
 
 To move the TurtleBot, we need to send the order in a form of value of speed. 3 linear speeds and 3 rotational speeds in xyz axis. Corresponding to the number of degrees of freedom that we have on our robot (1 on x axis, 1 on y axis and 1 for the rotation around the z axis), two linear speeds (in respect of x and y) and one rotational speed (z) are given to the robot to move to a position. Consequently, we need to calculate these speeds first and then send it to the robot. The concept is to reduce the difference between the initial position and the target position. The difference includes the distance between them and the gap between their orientations.
 
-![](https://user-images.githubusercontent.com/76461363/206848999-83dfadeb-ef98-486f-b88c-a8cd0509c822.png)
-
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image041.jpg)The distance between the two positions (ρ), the angle between the orientation of the robot and the target (θ), the angle between the orientation of the robot and the direction of the target (α)
 
-![Picture1](https://user-images.githubusercontent.com/76461363/206851398-bc761c88-77ba-436c-a964-ffa45d197769.png)
+![alt text](images/control.png)
 To reduce the distance, a forward movement toward the target is required. So, a forward speed and a direction must be calculated. Two parameters are responsible (α and ρ)
 
 The forward speed is: 
@@ -342,7 +332,7 @@ Detection of an obstacle is an important part of any self-driving robot. Lidar i
 
 ## 2. The algorithm developed
 
-We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.
+We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.![alt text](images/equation.png)
 
 0 degree is the front of the turtlebot3 and it measures in an anticlockwise manner.
 The data we get from turtlebot3 lidar is continious but not proper reliable as the data is ambiguous. While scanning the surrounding, the lidar sends lots of zeros and it makes the detection difficult in real time.
