@@ -128,49 +128,42 @@ while True:
 
         
 
-        # if fwl < dist_rt_lft and fwl != 0.0:
-        #     twist.linear.x = 0
-        #     twist.linear.y = 0
-        #     twist.angular.z = -0.4
+        if fwl < dist_rt_lft and fwl != 0.0:
+            twist.linear.x = 0
+            twist.linear.y = 0
+            twist.angular.z = -0.8
 
-        # if fwd > dist_front and fwd != 0.0:
-        #     print(f"{fwd = }")
-        #     twist.linear.x = forwards
-        #     twist.linear.y = forwards
-        #     twist.angular.z = rotations
-        # while(fwd != 0.0):
-        # if fwd < dist_front and fwd != 0.0:
-        #     print(f"{fwd = }")
-        #     twist.linear.x = 0
-        #     twist.linear.y = 0
-        #     twist.angular.z = 0.8
+        if fwd > dist_front and fwd != 0.0:
+            print(f"{fwd = }")
+            twist.linear.x = forwards
+            twist.linear.y = forwards
+            twist.angular.z = rotations
+
+        if fwd < dist_front and fwd != 0.0:
+            print(f"{fwd = }")
+            twist.linear.x = 0
+            twist.linear.y = 0
+            twist.angular.z = 0.8
             
 
-        # else:
-        #     twist.linear.x = forwards
-        #     twist.linear.y = forwards
-        #     twist.angular.z = rotations
-        # pub.publish(twist)
-
-
-        # if fwr < dist_rt_lft and fwr != 0.0:
-        #     twist.linear.x = 0
-        #     twist.linear.y = 0
-        #     twist.angular.z = 0.4
+        if fwr < dist_rt_lft and fwr != 0.0:
+            twist.linear.x = 0
+            twist.linear.y = 0
+            twist.angular.z = 0.8
 
 
 
-        twist.linear.x = forwards
-        # print(f'{twist.linear.x =}')
-        # twist.linear.x=0.1
-        twist.linear.y = forwards
-        # print(f'{twist.linear.y =}')
-        # twist.linear.y=0
-        twist.linear.z =0
-        twist.angular.x = 0
-        twist.angular.y = 0
-        twist.angular.z = rotations
-        # twist.angular.z=0
+#         twist.linear.x = forwards
+#         # print(f'{twist.linear.x =}')
+#         # twist.linear.x=0.1
+#         twist.linear.y = forwards
+#         # print(f'{twist.linear.y =}')
+#         # twist.linear.y=0
+#         twist.linear.z =0
+#         twist.angular.x = 0
+#         twist.angular.y = 0
+#         twist.angular.z = rotations
+#         # twist.angular.z=0
 
 
         pub.publish(twist)
