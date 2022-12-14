@@ -41,10 +41,10 @@ TABLES OF CONTENTS:
 
 7. [Implementation of working code](https://github.com/Reetika12795/Visual_Servoing#3-launch-the-robot-)
 
-    *  [Launch the Robot]
-    * [Launch the Ueye Camera]
-    * [Launch the Aruco Markers to get the pose]
-    * [rosrun the Control loop]
+    *  Launch the Robot
+    * Launch the Ueye Camera
+    * Launch the Aruco Markers to get the pose
+    * rosrun the Control loop
     * [Demo video of robo parking](https://github.com/Reetika12795/Visual_Servoing#demo-video-of-robot-parking)
     * [Demo video of robo as learder follower](https://github.com/Reetika12795/Visual_Servoing#demo-video-of-visual-servoing)
     
@@ -364,3 +364,10 @@ https://user-images.githubusercontent.com/116564367/207426650-6daa5a5e-d7d2-48e0
 Controlling a robot in an unknown environment add more challenge to the control system and to the detection. Detecting the robot will not be as easy as while using the aruco marker. Moving the robot in a rugged terrain needs a robust control system that takes in consideration the tough surface and the sliding of the wheels.
 
 The project allowed us to take on hand several important robotic skills, image processing, visual servoing, path planning, interpretation of the result, frame transformation, and soft skills as well.
+
+# References
+
+[ROS TurtleBot3 Basics](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)  
+[ROS Wiki](http://wiki.ros.org/noetic)  
+[ROS Basics course](https://www.theconstructsim.com/robotigniteacademy_learnros/ros-courses-library/ros-perception-in-5-days/)  
+[ROS perception course](https://www.theconstructsim.com/robotigniteacademy_learnros/ros-courses-library/ros-perception-in-5-days/)
