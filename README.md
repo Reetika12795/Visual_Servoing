@@ -14,10 +14,9 @@
    <img src = "images/vibot.png" width = 80>
 </p >
 
-
-
 ## <p align="center">Under the guidance of:</p > 
-### <p align="center"> Omar TAHRI </p >
+### <p align="center"> Omar TAHRI                     
+</p >
 
 ## <p align="center">Team Members:</p >
 ### <p align="center">REETIKA GAUTAM</p>
