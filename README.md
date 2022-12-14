@@ -1,16 +1,3 @@
-## MSFT PROJECT MSCV
-
-This repo will have all the topics covered during msft visual servoing practicals
-
-division of work, work plan
-how the work was shared
-goals
-methods
-conclusion
-difficulties
-demerits(what happened if...unit testing)Analysis of project
-future scope
-refrence
 
 <p align="center">  
    <img src = "images/ub.png" width = 200>
@@ -360,7 +347,7 @@ https://user-images.githubusercontent.com/116564367/207426348-3f00c999-504b-49d9
 
 ## 2. The algorithm developed
 
-We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.![alt text](images/equation.png)
+We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.
 
 0 degree is the front of the turtlebot3 and it measures in an anticlockwise manner.
 The data we get from turtlebot3 lidar is continious but not proper reliable as the data is ambiguous. While scanning the surrounding, the lidar sends lots of zeros and it makes the detection difficult in real time.
