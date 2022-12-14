@@ -70,7 +70,7 @@ For our project we will demontrate a real time visual servoing performed on Turt
 
 * The first objective is to move the robot from an initial position to a Target position considering the target orientation (Parking).
 
-* The second task is to make the robot follow the optimal path to target by avoiding the obstacle encountered on it's way.
+* The second task is to make the robot follow the optimal path to target by avoiding the obstacle encountered on it's way.
 
 # Architechture of our model
 
