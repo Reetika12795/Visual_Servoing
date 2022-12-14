@@ -3,20 +3,25 @@
    <img src = "images/ub.png" width = 200>
 </p >
 
- <p align="center">University of Burgundy
+# <p align="center">University of Burgundy
+			
 </p >
-<p align="center">Master of Computer vision and Robotics</p > 
+
+# <p align="center">Master in Computer Vision and Robotics
+</p >
+ 
 <p align="center">  
    <img src = "images/vibot.png" width = 80>
 </p >
 
 
 
-<p align="center">Under the guidance of:</p > 
-<p align="center"> Omar TAHRI </p >     
-<p align="center">Team Members:</p >
-<p align="center">REETIKA GAUTAM</p>
-<p align="center">SEIKH MOHAMMED BASHARAT MONES</p>
+## <p align="center">Under the guidance of:</p > 
+### <p align="center"> Omar TAHRI </p >
+
+## <p align="center">Team Members:</p >
+### <p align="center">REETIKA GAUTAM</p>
+### <p align="center">SEIKH MOHAMMED BASHARAT MONES</p>
 
 
 TABLES OF CONTENTS:
