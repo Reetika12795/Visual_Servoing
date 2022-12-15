@@ -194,9 +194,8 @@ To move the TurtleBot, we need to send the order in a form of value of speed. 3 
 ![](file:///C:/Users/zain/AppData/Local/Temp/msohtmlclip1/01/clip_image041.jpg)The distance between the two positions (ρ), the angle between the orientation of the robot and the target (θ), the angle between the orientation of the robot and the direction of the target (α)
 
 ![alt text](images/control.png)
-To reduce the distance, a forward movement toward the target is required. So, a forward speed and a direction must be calculated. Two parameters are responsible (α and ρ)
 
-The forward speed is: 
+To reduce the distance, a forward movement toward the target is required. So, a forward speed and a direction must be calculated. Two parameters are responsible (α and ρ)
 
 The third parameter (beta) should be reduced to park the robot in the same orientation as the target.
 
