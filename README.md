@@ -320,7 +320,7 @@ This step is to publish the speed calculated by publishing it on the robotâ€™s â
 ## Move the robot
 
 ```python
-rosrun my_aruco_tracker path_plan.py
+rosrun my_aruco_tracker path_plan_1.py
 ```
 ## **NOTE : By runnig path_plan.py, we are running all the previous files to get aruco coordinates and calculation of transformation matrix. So there is no need to run the previous two scripts, 'get_aruco_coord.py' and 'transformation_matrix.py'**
 
