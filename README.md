@@ -209,7 +209,6 @@ Simulate the control system using python code, by simulate a robot position whic
 Here we see that our intitial position is defined as [0,0,-90] and we see clearly that our robot to reach the target takes a curved path to justify our control and sucessfully reaches the target of [2,2]
 ![alt text](images/simulation.png)
 
-MicrosoftTeams-imageBothARUCOwithPoseBothARUCOwithPoseBothARUCOwithPoseBothARUCOwithPoseBothARUCOwithPose
 
 # Integration of ROS
 
