@@ -20,12 +20,9 @@
 
 ## <p align="center">Team Members:</p >
 ### <p align="center">REETIKA GAUTAM</p>
-### <p align="center">SEIKH MOHAMMED BASHARAT MONES</p>
+### <p align="center">SEIKH MOHAMMED BASHARAT MONES</p> /
 
-
-TABLES OF CONTENTS:
-
-
+# <p align="center"> TABLE OF CONTENT </p>
 
  1. [Introduction](https://github.com/Reetika12795/Visual_Servoing#introduction)
 	1. [Architecture of our Approach](https://github.com/Reetika12795/Visual_Servoing#architechture-of-our-model)
@@ -275,9 +272,14 @@ After cloning the repository proviously mentioned and installation, go inside th
 
 ![image](https://user-images.githubusercontent.com/116564367/207371246-7de48631-9e39-44d5-9731-af32b2cf6d28.png)
 
-To launch the marker, run :
+To launch the marker 25 for the robot, launch in RemotePC :
 ```
 roslaunch my_aruco_tracker aruco_marker_finder.launch
+```
+
+To launch the marker 701 for the target, launch :
+```
+roslaunch my_aruco_tracker aruco_marker_finder_2.launch
 ```
 It will show the detected marker with it's ID successfully.
 
@@ -291,6 +293,7 @@ It will show the detected marker with it's ID successfully.
 
 To get the pose we have used 2D coordinates as our bot is moving in 2D.
 Run the following snippet to get the pose from the marker :
+
 ```
 rosrun my_aruco_tracker get_aruco_coord.py
 ```
@@ -316,7 +319,7 @@ This step is to publish the speed calculated by publishing it on the robotâ€™s â
 
 ## Move the robot
 
-```
+```python
 rosrun my_aruco_tracker path_plan.py
 ```
 ## **NOTE : By runnig path_plan.py, we are running all the previous files to get aruco coordinates and calculation of transformation matrix. So there is no need to run the previous two scripts, 'get_aruco_coord.py' and 'transformation_matrix.py'**
