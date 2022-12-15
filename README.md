@@ -15,12 +15,11 @@
 </p >
 
 ## <p align="center">Under the guidance of:</p > 
-### <p align="center"> Omar TAHRI                     
-</p >
+### <p align="center"> Omar TAHRI</p >  
 
 ## <p align="center">Team Members:</p >
 ### <p align="center">REETIKA GAUTAM</p>
-### <p align="center">SEIKH MOHAMMED BASHARAT MONES</p> /
+### <p align="center">SEIKH MOHAMMED BASHARAT MONES</p>  
 
 # <p align="center"> TABLE OF CONTENT </p>
 
