@@ -348,7 +348,7 @@ Detection of an obstacle is an important part of any self-driving robot. Lidar i
 https://user-images.githubusercontent.com/116564367/207426348-3f00c999-504b-49d9-93dc-413128de6fb1.mp4
 
 
-## 2. The algorithm developed
+## 2. The final integration
 
 We have read the lidar data on specific angles which are 0 degree, 15 degrees and 345 degrees.
 
